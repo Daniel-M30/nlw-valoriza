@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { CreateUserService } from "../services/CreateUserService";
 
 export default {
-  async createUser(req: Request, res: Response) {
+  async handle(req: Request, res: Response) {
     const { name, email, password, admin } = req.body;
 
     const createUserService = new CreateUserService();
@@ -14,6 +14,6 @@ export default {
       admin,
     });
 
-    res.send(user);
+    return res.send(user);
   },
 };
